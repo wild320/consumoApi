@@ -1,6 +1,8 @@
 import React, {useEffect,useState} from 'react';
 import Personajes from './components/Personajes';
 import Navegacion from './components/Navegacion'
+import Paginacion from './components/Paginacion';
+
 function App() {
 
   /**
@@ -9,6 +11,7 @@ function App() {
    */
 
   const [personajes,setPersonajes]=useState([]);
+  const [info, setInfo]=useState([]);
 
   const url_base="https://rickandmortyapi.com/api/character";
 
@@ -20,10 +23,21 @@ function App() {
   const fetchPersonajes =(url)=>{
     fetch(url)
         .then(response=>response.json())
-        .then(data => setPersonajes(data.results))//setPersonajes es la funcion que modifica el estado, y le paso el array con los resultados
+        .then(data => {
+          setPersonajes(data.results);
+          setInfo(data.info);
+        })//setPersonajes es la funcion que modifica el estado, y le paso el array con los resultados
         .catch(error => console.log(error))
 
   };
+  const onAnterior = ()=>{
+    fetchPersonajes(info.prev);
+
+  }
+  const onSiguiente = ()=>{
+    fetchPersonajes(info.next)
+    
+  }
 
   /**
    * controlamos los datos con useEffect con una depencia vacia una unica vez
@@ -43,8 +57,9 @@ function App() {
     <>
     
     <Navegacion brand="Rick and Morty Api"/>
-    <div className="container mt-5">
-      <Personajes personajes={personajes}/>            
+    <div className="container mt-3 ">
+      <Personajes personajes={personajes}/>     
+      <Paginacion prev={info.prev} next={info.next} onAnterior={onAnterior} onSiguiente={onSiguiente}/>       
     </div>
     </>
     

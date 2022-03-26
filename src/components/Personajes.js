@@ -9,12 +9,12 @@ const Personajes = ({personajes=[]}) => {
              * recibe dos parametros: el item que va llegando y el index
              */
             personajes.map((item, index) =>(
-                <div key={index} className="col mb-4">
-                    <div className="card bg-dark p-2">
-                        <img class="rounded" src={item.image} alt="" style={{minWidth:"200px"}}/>
-                        <div className="card-body">
-                            <h4 className="card-title text-light">{item.name}</h4>                
-                            <p className="text-light">Origen: {item.origin.name}<br></br>
+                <div key={index} className="col-lg-3 col-md-6 col-sm-12 mb-4">
+                    <div className="card bg-dark p-2 " style={{minWidth:"200px"}}>
+                        <img class="rounded" src={item.image} alt="Personaje"/>
+                        <div className="card-body ">
+                            <h5 className="card-title text-light text-decoration-underline">{item.name}</h5>                
+                            <p className="card-text text-light ">Origen: {item.origin.name}<br></br>
                             Especie: {item.species}<br></br>
                             Genero: {item.gender}<br></br>
                             Localizacion: {item.location.name}
