@@ -1,4 +1,5 @@
 import React, {useEffect,useState} from 'react';
+import Personajes from './components/Personajes';
 
 function App() {
 
@@ -34,9 +35,17 @@ function App() {
 
   },[])
   return (
-    <div className="App">
-      
-    </div>
+    /**
+     * En el div container 
+     * agregamos el componente personajes y tendra una propiedad llamada personajes
+     * que recibe el array del useState atravez de las props
+     */
+    <>
+      <div className="container mt-5">
+        <Personajes personajes={personajes}/>            
+      </div>
+    </>
+    
   );
 }
 
