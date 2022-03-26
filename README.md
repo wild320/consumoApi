@@ -1,6 +1,9 @@
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Consumo de Api rick and morty
+Consumo de Api con fetch, useState, useEffect
+uso de bootstrap5
 
 ## Available Scripts
 

@@ -1,6 +1,6 @@
 import React, {useEffect,useState} from 'react';
 import Personajes from './components/Personajes';
-
+import Navegacion from './components/Navegacion'
 function App() {
 
   /**
@@ -41,9 +41,11 @@ function App() {
      * que recibe el array del useState atravez de las props
      */
     <>
-      <div className="container mt-5">
-        <Personajes personajes={personajes}/>            
-      </div>
+    
+    <Navegacion brand="Rick and Morty Api"/>
+    <div className="container mt-5">
+      <Personajes personajes={personajes}/>            
+    </div>
     </>
     
   );
